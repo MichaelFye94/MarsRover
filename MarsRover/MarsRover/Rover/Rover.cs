@@ -25,10 +25,10 @@ namespace MarsRover
                 {
                     case 'L':
                     case 'R':
-                        Rotate(c);
+                        rotate(c);
                         break;
                     case 'M':
-                        Move();
+                        move();
                         break;
                 }
             }
@@ -36,14 +36,14 @@ namespace MarsRover
             return transmitPosition();
         }
 
-        public void Rotate(char direction)
+        private void rotate(char direction)
         {
             var headingTransform = (int)(direction == 'L' ? _heading - 1 : _heading + 1);
             var newHeading = Mod(headingTransform, 4);
             _heading = (Heading)newHeading;
         }
 
-        public void Move()
+        private void move()
         {
             var forwardVector = ForwardVectors[_heading.ToString()];
             var newPosition = Vector2.Add(_position, forwardVector);
