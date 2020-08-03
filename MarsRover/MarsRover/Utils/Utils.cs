@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Numerics;
-using System.Text;
 
 namespace MarsRover.Utils
 {
@@ -23,6 +21,12 @@ namespace MarsRover.Utils
             {"W", new Vector2(-1, 0) },
         };
 
+        /// <summary>
+        /// A custom modulo method that preserves the sign of the divisor, such that -1 mod 4 returns 3, rather than -1
+        /// </summary>
+        /// <param name="dividend"></param>
+        /// <param name="divisor"></param>
+        /// <returns>Modulus of the dividend and divisor, retaining the sign of the divisor</returns>
         public static int Mod(int dividend, int divisor)
         {
             var remainder = dividend % divisor;
